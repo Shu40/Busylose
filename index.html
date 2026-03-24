@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusyLoss - AI Productivity & App Tracking Software</title>
+    <meta name="description"
+        content="Download BusyLoss - AI powered app tracking and digital wellbeing tool for Windows.">
+
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://busyloss.com/">
+    <meta property="og:title" content="BusyLoss - AI Productivity & App Tracking Software">
+    <meta property="og:description"
+        content="Download BusyLoss - AI powered app tracking and digital wellbeing tool for Windows.">
+    <meta property="og:image" content="mock-dashboard.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <button class="mobile-toggle" id="mobileToggle">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <!-- Ultra-Professional Hero Background (Animated Character) -->
+    <div class="hero-background-wrapper">
+        <img src="hero-bg.png" alt="Satisfied Developer" class="hero-bg-image">
+        <div class="hero-overlay"></div>
+    </div>
+
+    <!-- Atmospheric Glow Orbs -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <div id="loader" class="glass"
+        style="position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: #0a0a0c;">
+        <div
+            style="width: 40px; height: 40px; border: 3px solid var(--accent-cyan); border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite;">
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <i data-lucide="shield-check" style="width: 32px; height: 32px;"></i>
+                BusyLoss
+            </div>
+            <nav class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">
+                        <i data-lucide="home" style="margin-right: 12px; width: 18px;"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">
+                        <i data-lucide="zap" style="margin-right: 12px; width: 18px;"></i> Features
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#downloads" class="nav-link">
+                        <i data-lucide="download" style="margin-right: 12px; width: 18px;"></i> Downloads
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#documentation" class="nav-link">
+                        <i data-lucide="book-open" style="margin-right: 12px; width: 18px;"></i> Documentation
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#release-notes" class="nav-link">
+                        <i data-lucide="clipboard-list" style="margin-right: 12px; width: 18px;"></i> Release Notes
+                    </a>
+                </li>
+            </nav>
+            <div class="sidebar-footer"
+                style="padding: 1.5rem; margin-top: auto; border-top: 1px solid rgba(255,255,255,0.05);">
+                <div class="dev-badge glass"
+                    style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px;">
+                    <div
+                        style="background: var(--accent-cyan); color: #000; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem;">
+                        S</div>
+                    <div style="flex: 1;">
+                        <span
+                            style="display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--accent-cyan); letter-spacing: 0.5px;">System
+                            Architect</span>
+                        <span style="display: block; font-size: 0.85rem; font-weight: 700; color: #fff;">Shubham
+                            Kumar</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home">
+                <div class="animate-up">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
+                        <span class="version-tag">LATEST: v1.0</span>
+                        <div class="status-dot"></div>
+                        <span
+                            style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Stable
+                            Build</span>
+                    </div>
+                    <h1 class="text-gradient">AI Powered Digital <br>Wellbeing for Windows</h1>
+                    <p class="description">Take control of your digital life. BusyLoss provides deep insights into your
+                        software usage patterns, helping you stay focused and productive with AI-driven analytics.</p>
+                    <a href="https://github.com/Shu40/SecureOwnSystem/releases/download/v1.0/SecureOwnSystem.exe"
+                        class="btn btn-primary">
+                        <i data-lucide="layout-grid" style="width: 20px;"></i> Download for Windows
+                    </a>
+                    <div
+                        style="margin-top: 1rem; display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-secondary); opacity: 0.8;">
+                        <i data-lucide="shield-check" style="width: 14px; color: var(--accent-green);"></i> Verified
+                        Software Development by Shubham
+                    </div>
+                </div>
+                <div class="animate-up tilt-element" style="margin-top: 4rem; position: relative;">
+                    <div class="glass glass-premium"
+                        style="border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);">
+                        <img src="mock-dashboard.png" alt="BusyLoss Dashboard"
+                            style="width: 100%; display: block; filter: brightness(0.9);">
+                    </div>
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(0deg, var(--bg-primary) 0%, transparent 40%); pointer-events: none;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features">
+                <h2 class="animate-up">Powerful Features</h2>
+                <div class="features-grid animate-up">
+                    <div class="glass glass-card feature-card">
+                        <div class="feature-icon"><i data-lucide="activity"></i></div>
+                        <h3>Real-time App Tracking</h3>
+                        <p style="color: var(--text-secondary);">Monitor every active application with millisecond
+                            precision to understand where your time goes.</p>
+                    </div>
+                    <div class="glass glass-card feature-card">
+                        <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
+                        <h3>Usage Analytics</h3>
+                        <p style="color: var(--text-secondary);">Beautiful visualization of your daily, weekly, and
+                            monthly software interactions.</p>
+                    </div>
+                    <div class="glass glass-card feature-card">
+                        <div class="feature-icon"><i data-lucide="brain-circuit"></i></div>
+                        <h3>AI Productivity Insights</h3>
+                        <p style="color: var(--text-secondary);">Get personalized recommendations on how to optimize
+                            your workflow based on usage history.</p>
+                    </div>
+                    <div class="glass glass-card feature-card">
+                        <div class="feature-icon"><i data-lucide="clock"></i></div>
+                        <h3>App Usage Limits</h3>
+                        <p style="color: var(--text-secondary);">Set soft and hard limits for distracting applications
+                            to maintain peak performance.</p>
+                    </div>
+                    <div class="glass glass-card feature-card">
+                        <div class="feature-icon"><i data-lucide="focus"></i></div>
+                        <h3>Focus Mode</h3>
+                        <p style="color: var(--text-secondary);">Block interruptions and create a dedicated environment
+                            for deep work sessions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download Section -->
+            <section id="downloads">
+                <div class="animate-up" style="margin-bottom: 4rem;">
+                    <div class="subtitle">Distribution</div>
+                    <h2>Release Center</h2>
+                    <p class="description">Select your preferred build. Verified stable releases for enterprise and
+                        individual use.</p>
+                </div>
+
+                <div class="downloads-container animate-up">
+                    <div class="glass download-card">
+                        <div class="card-header"
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <div class="version-badge">v1.0.0 STABLE</div>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">March 2026</span>
+                        </div>
+                        <h3>BusyLoss Desktop</h3>
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.5rem 0; font-size: 0.85rem;">
+                            <div
+                                style="display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <span style="color: var(--text-secondary);">Build</span><strong>x64 Static</strong>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <span style="color: var(--text-secondary);">Size</span><strong>14.8 MB</strong>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1.5rem;">MD5: <code
+                                style="color: var(--accent-cyan); font-family: monospace;">a1b2c3d4e5f6g7h8...</code>
+                        </div>
+                        <a href="https://github.com/Shu40/SecureOwnSystem/releases/download/v1.0/SecureOwnSystem.exe"
+                            class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <i data-lucide="download"></i> Download v1.0.0 (.exe)
+                        </a>
+                    </div>
+
+                    <div class="glass download-card upcoming">
+                        <div class="card-header"
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <div class="version-badge"
+                                style="background: rgba(0, 255, 136, 0.1); color: var(--accent-green);">v2.0.0 BETA
+                            </div>
+                            <span style="font-size: 0.8rem; color: var(--accent-green);">Q3 2026 Roadmap</span>
+                        </div>
+                        <h3>Next-Gen Preview</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Early access
+                            to cloud-sync & AI-Coaching modules.</p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span
+                                style="font-size: 0.7rem; padding: 4px 10px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 4px; color: var(--accent-green);">Cloud
+                                Sync</span>
+                            <span
+                                style="font-size: 0.7rem; padding: 4px 10px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 4px; color: var(--accent-green);">Mobile
+                                App</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="install-roadmap-container animate-up glass"
+                    style="margin-top: 4rem; padding: 3rem; border-radius: 24px;">
+                    <h3 style="margin-bottom: 2rem; color: var(--accent-cyan); text-align: center;">Enterprise
+                        Installation Path</h3>
+                    <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 700px; margin: 0 auto;">
+                        <div style="display: flex; gap: 20px;">
+                            <div
+                                style="width: 36px; height: 36px; background: var(--accent-cyan); color: #000; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0;">
+                                01</div>
+                            <div>
+                                <strong style="color: var(--text-primary); display: block; margin-bottom: 5px;">Binary
+                                    Acquisition</strong>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary);">Direct download from our
+                                    audited GitHub release mirror to ensure zero tampering.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 20px;">
+                            <div
+                                style="width: 36px; height: 36px; background: var(--accent-cyan); color: #000; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0;">
+                                02</div>
+                            <div>
+                                <strong style="color: var(--text-primary); display: block; margin-bottom: 5px;">Process
+                                    Execution</strong>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary);">Initiate the installer.
+                                    Respond to Windows SmartScreen prompts by selecting 'More Info' → 'Run Anyway'.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 20px;">
+                            <div
+                                style="width: 36px; height: 36px; background: var(--accent-green); color: #000; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0;">
+                                <i data-lucide="check" style="width: 20px;"></i>
+                            </div>
+                            <div>
+                                <strong style="color: var(--accent-green); display: block; margin-bottom: 5px;">Final
+                                    Validation</strong>
+                                <p style="font-size: 0.95rem; color: var(--text-secondary);">System service initializes.
+                                    Begin tracking after initial local setup wizard.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Documentation Section -->
+            <section id="documentation">
+                <div class="animate-up">
+                    <div class="subtitle">Support & Guides</div>
+                    <h2>Documentation</h2>
+                    <p class="description">Everything you need to know about setting up and mastering BusyLoss.</p>
+                </div>
+
+                <div class="docs-dashboard glass animate-up">
+                    <!-- Docs Sidebar (Tabs) -->
+                    <div class="docs-sidebar">
+                        <div class="doc-tab active" data-target="quick-start">
+                            <i data-lucide="rocket"></i> Quick Start
+                        </div>
+                        <div class="doc-tab" data-target="features-detail">
+                            <i data-lucide="layers"></i> Core Features
+                        </div>
+                        <div class="doc-tab" data-target="privacy-security">
+                            <i data-lucide="shield-check"></i> Privacy & Security
+                        </div>
+                        <div class="doc-tab" data-target="advanced-config">
+                            <i data-lucide="settings-2"></i> Advanced Config
+                        </div>
+                        <div class="doc-tab" data-target="cli-manual">
+                            <i data-lucide="terminal"></i> Manual Execution
+                        </div>
+                        <div class="doc-tab" data-target="troubleshooting">
+                            <i data-lucide="help-circle"></i> Troubleshooting
+                        </div>
+                    </div>
+
+                    <!-- Docs Content Area -->
+                    <div class="docs-content" id="docs-viewport">
+                        <!-- Quick Start Content -->
+                        <div class="doc-pane active" id="quick-start">
+                            <h3>🚀 Quick Start Guide</h3>
+                            <p>Get up and running with BusyLoss in less than 2 minutes. For a detailed walkthrough, <a
+                                    href="#downloads" style="color: var(--accent-cyan); font-weight: 600;">Go to
+                                    Download Steps &rarr;</a></p>
+                            <div class="step-list">
+                                <div class="step">
+                                    <span class="step-num">01</span>
+                                    <div>
+                                        <strong>Download:</strong> Get the latest installer from the <a
+                                            href="#downloads" style="color: var(--accent-cyan);">Downloads</a> section.
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-num">02</span>
+                                    <div>
+                                        <strong>Install:</strong> Run the `.exe` file. Click "More Info" → "Run Anyway"
+                                        if prompted by Windows SmartScreen.
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-num">03</span>
+                                    <div>
+                                        <strong>Launch:</strong> Open the app and grant required permissions for window
+                                        tracking.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Features Detail -->
+                        <div class="doc-pane" id="features-detail">
+                            <h3>🔍 Mastering Core Features</h3>
+                            <div class="feature-detail-grid">
+                                <div class="glass-inset">
+                                    <h4>Window Tracking</h4>
+                                    <p>BusyLoss monitors active window focus changes to calculate precise usage time. It
+                                        ignores background processes to ensure data accuracy.</p>
+                                </div>
+                                <div class="glass-inset">
+                                    <h4>AI Insights</h4>
+                                    <p>Our local AI model analyzes your focus patterns and provides weekly 'Productivity
+                                        Scores' with suggestions for improvement.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Privacy & Security -->
+                        <div class="doc-pane" id="privacy-security">
+                            <h3>🛡️ Security & Privacy First</h3>
+                            <p>We believe your data belongs only to you. Here is how we protect it:</p>
+                            <ul class="feature-list">
+                                <li><i data-lucide="lock"></i> **Local Storage:** All app usage data is encrypted and
+                                    saved only on your device.</li>
+                                <li><i data-lucide="eye-off"></i> **No Keylogging:** We never record keystrokes,
+                                    screenshots, or any personal content.</li>
+                                <li><i data-lucide="wifi-off"></i> **Offline Mode:** The core engine works 100% offline;
+                                    no data is sent to our servers.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Advanced Config -->
+                        <div class="doc-pane" id="advanced-config">
+                            <h3>⚙️ Advanced Configuration</h3>
+                            <p>Customize BusyLoss to fit your professional workflow.</p>
+                            <div class="code-block">
+                                <pre><code>// Edit config.json to exclude apps
+"exclude": ["SystemSettings.exe", "Taskmgr.exe"],
+"idle_timeout": 300 // seconds before marking idle</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- CLI / Manual Execution -->
+                        <div class="doc-pane" id="cli-manual">
+                            <h3>💻 Terminal & Manual Execution</h3>
+                            <p>For advanced users and developers who prefer the command line.</p>
+
+                            <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">Running the App via CLI</h4>
+                            <div class="code-block" style="margin-bottom: 2rem;">
+                                <pre><code>// Basic tracking mode
+BusyLoss.exe --track
+
+// Start minimized to tray
+BusyLoss.exe --silent --minimized
+
+// Export usage report to JSON
+BusyLoss.exe --export --format=json --output=report.json</code></pre>
+                            </div>
+
+                            <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">Manual Website Hosting</h4>
+                            <p style="font-size: 0.9rem;">To run this project locally for development:</p>
+                            <div class="code-block">
+                                <pre><code># Using Python
+python -m http.server 8000
+
+# Using Node.js (serve)
+npx serve .</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Troubleshooting -->
+                        <div class="doc-pane" id="troubleshooting">
+                            <h3>❓ Help & Troubleshooting</h3>
+                            <div class="faq-item">
+                                <strong>App not tracking focus?</strong>
+                                <p>Ensure BusyLoss has "Accessibility" permissions and is not being blocked by
+                                    aggressive antivirus software.</p>
+                            </div>
+                            <div class="faq-item" style="margin-top: 15px;">
+                                <strong>High CPU usage?</strong>
+                                <p>This can occur during AI model updates. It should stabilize within 30 seconds of
+                                    launching.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Release Notes Section -->
+            <section id="release-notes">
+                <h2 class="animate-up">Release Notes</h2>
+                <div class="glass animate-up" style="padding: 2.5rem;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h3 style="color: var(--accent-green);">v1.0 (Initial Release)</h3>
+                        <span style="color: var(--text-secondary);">March 2026</span>
+                    </div>
+                    <ul style="list-style: none; color: var(--text-secondary);">
+                        <li style="margin-bottom: 0.8rem; display: flex; gap: 10px;">
+                            <i data-lucide="check-circle-2" style="color: var(--accent-cyan); width: 20px;"></i>
+                            Core engine implementation with app tracking
+                        </li>
+                        <li style="margin-bottom: 0.8rem; display: flex; gap: 10px;">
+                            <i data-lucide="check-circle-2" style="color: var(--accent-cyan); width: 20px;"></i>
+                            Advanced AI productivity analytics and insights
+                        </li>
+                        <li style="margin-bottom: 0.8rem; display: flex; gap: 10px;">
+                            <i data-lucide="check-circle-2" style="color: var(--accent-cyan); width: 20px;"></i>
+                            Customizable usage limits and focus timers
+                        </li>
+                        <li style="margin-bottom: 0.8rem; display: flex; gap: 10px;">
+                            <i data-lucide="check-circle-2" style="color: var(--accent-cyan); width: 20px;"></i>
+                            Modern, responsive dark UI dashboard
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer style="padding: 4rem 2rem; border-top: 1px solid var(--border-color); text-align: center;">
+                <div class="footer-branding" style="margin-bottom: 2rem;">
+                    <div style="font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">BusyLoss</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Empowering focus through AI-driven
+                        analytics.</p>
+                </div>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-primary);">
+                    Made with ❤️ by <span
+                        style="color: var(--accent-cyan); font-weight: 700; text-decoration: none;">Developer
+                        Shubham</span>
+                </p>
+                <div style="display: flex; justify-content: center; gap: 2rem;">
+                    <a href="https://github.com/Shu40/" class="footer-link">
+                        <i data-lucide="github"></i> GitHub Repository
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i data-lucide="globe"></i> Portfolio
+                    </a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <style>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script src="main.js"></script>
+</body>
+
+</html>
