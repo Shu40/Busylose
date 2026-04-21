@@ -1,38 +1,36 @@
-# BusyLoss - AI Productivity & App Tracking Software
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A professional website for BusyLoss, the AI-powered digital wellbeing and security suite for Windows.
+## Getting Started
 
-## 🚀 Overview
-BusyLoss is a high-performance application designed to track software usage patterns and provide AI-driven productivity insights. This website serves as the primary landing page for documentation, downloads, and release updates.
+First, run the development server:
 
-## 🛠️ Built With
-- **Language**: Vanilla HTML5, CSS3, JavaScript
-- **Icons**: [Lucide Icons](https://lucide.dev/)
-- **Typography**: Inter (Google Fonts)
-- **Design Patterns**: Glassmorphism, Dark Neon Aesthetic
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## 📄 Key Sections
-- **Home**: Hero section with direct download CTA and dashboard mockup.
-- **Features**: Deep dive into app tracking, AI insights, and focus modes.
-- **Downloads**: Automated version tracking and installation instructions.
-- **Documentation**: Simple setup guide and FAQ for new users.
-- **Release Notes**: Log of feature updates and version history.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🔍 SEO Features
-- **Meta Tags**: Optimized title and description for search engine visibility.
-- **Open Graph**: Support for rich social media sharing (title, description, image).
-- **Semantics**: Proper use of HTML5 semantic elements (main, section, aside, footer).
-- **Icons**: High-quality SVG icons via Lucide for sharp rendering.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## 💻 How to Run Locally
-1. Clone or download the repository.
-2. Open `index.html` in any modern web browser.
-3. Alternatively, if you have Python installed, run a local server:
-   ```bash
-   python -m http.server 8000
-   ```
-   Then visit `http://localhost:8000`.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## 🧑‍💻 Author
-Made with ❤️ by **Shubham Kumar**.
-[GitHub Profile](https://github.com/Shu40/)
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
