@@ -25,7 +25,7 @@ import {
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 
 export default async function AdminDashboard({
   searchParams,
@@ -258,7 +258,7 @@ export default async function AdminDashboard({
       </div>
     );
   } else if (currentTab === "settings") {
-    const config = await getSiteConfig();
+    const config = await getSiteConfig() as any;
     displayContent = (
       <div className="bg-white dark:bg-slate-900 rounded-3xl border p-8 shadow-sm space-y-8">
         <div>

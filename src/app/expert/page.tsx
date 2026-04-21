@@ -26,7 +26,7 @@ export default async function ExpertTalkingPage() {
         </p>
       </div>
 
-      {config.isFeedbackFormActive && (
+      {(config as any).isFeedbackFormActive && (
         <div className="animate-in slide-in-from-top-10 duration-700">
             <FeedbackForm />
         </div>
@@ -39,7 +39,7 @@ export default async function ExpertTalkingPage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {articles.map((article) => (
+          {(articles as any[]).map((article) => (
             <div key={article._id.toString()} className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border hover:shadow-xl transition-all p-6">
               <h2 className="text-2xl font-bold group-hover:text-sky-700 transition-colors mb-4 line-clamp-2">{article.title}</h2>
               <div className="flex items-center gap-x-4 mb-6 text-xs font-bold text-slate-400">

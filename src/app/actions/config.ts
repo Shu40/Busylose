@@ -4,7 +4,7 @@ import dbConnect from "@/lib/db";
 import SiteConfig from "@/models/SiteConfig";
 import { revalidatePath } from "next/cache";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 
 export async function toggleFeedbackForm() {
   try {

@@ -4,7 +4,7 @@ import dbConnect from "@/lib/db";
 import User from "@/models/User";
 import Submission from "@/models/Submission";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 import bcrypt from "bcryptjs";
 import { revalidatePath } from "next/cache";
 
@@ -174,7 +174,7 @@ export async function getCreatorStats() {
         const submissions = await Submission.find({ userId, status: 'approved' }).lean();
         
         // Enhance with detailed stats
-        const toolStats = submissions.map(s => ({
+        const toolStats = (submissions as any[]).map(s => ({
             id: s._id.toString(),
             title: s.title,
             category: s.category,

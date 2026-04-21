@@ -1,8 +1,8 @@
-import { UserPlus, CloudUpload, Share2, Award } from "lucide-react";
+import { UserPlus, UploadCloud, Share2, Award } from "lucide-react";
 
 const steps = [
     { title: "Sign Up", desc: "Create your pro developer account in seconds.", icon: UserPlus, color: "text-sky-600", bg: "bg-sky-50" },
-    { title: "Upload Project", desc: "Share your tools, software or website code.", icon: CloudUpload, color: "text-indigo-600", bg: "bg-indigo-50" },
+    { title: "Upload Project", desc: "Share your tools, software or website code.", icon: UploadCloud, color: "text-indigo-600", bg: "bg-indigo-50" },
     { title: "Get Verified", desc: "Our team reviews and approves your submission.", icon: Award, color: "text-emerald-600", bg: "bg-emerald-50" },
     { title: "Share & Earn", desc: "Reach thousands of users globally.", icon: Share2, color: "text-orange-600", bg: "bg-orange-50" },
 ];

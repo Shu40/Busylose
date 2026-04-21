@@ -14,11 +14,11 @@ export default async function CertificatePage({
   
   const submission = await Submission.findById(id).lean();
   
-  if (!submission || submission.status !== 'approved') {
+  if (!submission || (submission as any).status !== 'approved') {
     notFound();
   }
 
-  const certificateDate = new Date(submission.processedAt || submission.submittedAt).toLocaleDateString('en-US', {
+  const certificateDate = new Date((submission as any).processedAt || (submission as any).submittedAt).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
     year: 'numeric'
@@ -45,11 +45,11 @@ export default async function CertificatePage({
           <div className="py-8 space-y-4">
             <p className="text-slate-500 dark:text-slate-400 font-medium">This is to certify that</p>
             <h3 className="text-4xl font-black text-slate-900 dark:text-white underline underline-offset-8 decoration-sky-700/30">
-              {submission.ownerName}
+              {(submission as any).ownerName}
             </h3>
             <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              Has successfully contributed the tool <span className="font-bold text-sky-700">"{submission.title}"</span> to the BusyLoss platform. 
-              The contribution in the <span className="font-bold text-sky-700">{submission.category}</span> category has been verified and is now live for public access.
+              Has successfully contributed the tool <span className="font-bold text-sky-700">"{(submission as any).title}"</span> to the BusyLoss platform. 
+              The contribution in the <span className="font-bold text-sky-700">{(submission as any).category}</span> category has been verified and is now live for public access.
             </p>
             <p className="text-sky-700 font-black uppercase tracking-widest text-xs pt-4">
               Permanent Member of BusyLoss
@@ -71,7 +71,7 @@ export default async function CertificatePage({
 
           <div className="pt-12 flex justify-center items-center gap-x-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
             <Globe className="w-3 h-3" />
-            <span>Official Digital Verification: BUSYLOSS-CERT-{submission._id.toString().substring(0,8).toUpperCase()}</span>
+            <span>Official Digital Verification: BUSYLOSS-CERT-{(submission as any)._id.toString().substring(0,8).toUpperCase()}</span>
           </div>
         </div>
       </div>
