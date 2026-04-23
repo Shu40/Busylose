@@ -11,13 +11,25 @@ import { getServerSession } from "next-auth";
 
 export async function submitResource(formData: FormData) {
   try {
-    const title = formData.get("title") as string;
-    const description = formData.get("description") as string;
-    const category = formData.get("category") as string;
-    const link = formData.get("link") as string;
-    const contactEmail = formData.get("contactEmail") as string;
-    const featuresRaw = formData.get("features") as string;
+    const title = String(formData.get("title") || "").trim();
+    const description = String(formData.get("description") || "").trim();
+    const category = String(formData.get("category") || "").trim();
+    const link = String(formData.get("link") || "").trim();
+    const contactEmail = String(formData.get("contactEmail") || "").trim();
+    const featuresRaw = String(formData.get("features") || "").trim();
     const features = featuresRaw ? featuresRaw.split(",").map(f => f.trim()) : [];
+
+    // URL Validation & SSRF Prevention
+    try {
+      const url = new URL(link);
+      if (!['http:', 'https:'].includes(url.protocol)) throw new Error("Invalid protocol");
+      if (['localhost', '127.0.0.1', '0.0.0.0'].includes(url.hostname)) throw new Error("Restricted URL");
+      // Basic private IP check (simplified)
+      if (url.hostname.startsWith('192.168.') || url.hostname.startsWith('10.')) throw new Error("Restricted URL");
+    } catch {
+      throw new Error("Invalid or restricted download link provided.");
+    }
+
 
     await dbConnect();
     const session = await getServerSession(authOptions);

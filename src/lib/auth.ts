@@ -4,6 +4,9 @@ import bcrypt from "bcryptjs";
 import dbConnect from "@/lib/db";
 import User from "@/models/User";
 
+const isProd = process.env.NODE_ENV === "production";
+const domain = "busylose.netlify.app"; // The user provided this URL
+
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
@@ -13,12 +16,16 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
+        const email = String(credentials?.email || "");
+        const password = String(credentials?.password || "");
+
+        if (!email || !password) {
           throw new Error("Invalid credentials");
         }
 
         await dbConnect();
-        const user = await User.findOne({ email: credentials.email });
+        const user = await User.findOne({ email });
+
 
         if (!user || !user.password) {
           throw new Error("Invalid credentials");
@@ -53,7 +60,7 @@ export const authOptions: NextAuthOptions = {
     })
   ],
   callbacks: {
-    async jwt({ token, user, trigger, session }) {
+    async jwt({ token, user }) {
       if (user) {
         token.role = (user as any).role;
         token.id = user.id;
@@ -65,18 +72,59 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       if (session.user) {
         (session.user as any).role = token.role;
-        (session.user as any).id = token.id;
+        (session.user as any).id = token.id as string;
         (session.user as any).isApproved = token.isApproved;
         (session.user as any).isBlocked = token.isBlocked;
       }
       return session;
     },
+    async redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url;
+      // Prevent open redirect to other domains
+      return baseUrl;
+    },
   },
   pages: {
     signIn: "/login",
+    error: "/login", // Redirect to login on error
   },
   session: {
-    strategy: "jwt"
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
+  cookies: {
+    sessionToken: {
+      name: isProd ? `__Secure-next-auth.session-token` : `next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: "strict",
+        path: "/",
+        secure: isProd,
+      },
+    },
+    callbackUrl: {
+      name: isProd ? `__Secure-next-auth.callback-url` : `next-auth.callback-url`,
+      options: {
+        httpOnly: true,
+        sameSite: "strict",
+        path: "/",
+        secure: isProd,
+      },
+    },
+    csrfToken: {
+      name: isProd ? `__Host-next-auth.csrf-token` : `next-auth.csrf-token`,
+      options: {
+        httpOnly: true,
+        sameSite: "strict",
+        path: "/",
+        secure: isProd,
+      },
+    },
   },
   secret: process.env.NEXTAUTH_SECRET,
+  debug: !isProd, // Disable debug in production
 };
+

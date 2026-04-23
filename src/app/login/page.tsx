@@ -79,7 +79,8 @@ function LoginForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 focus:ring-2 focus:ring-sky-500 outline-none transition-all"
-            placeholder="kumar@gmail.com"
+            placeholder="shubham@gmail.com"
+
             required
           />
         </div>
@@ -94,7 +95,7 @@ function LoginForm() {
             required
           />
         </div>
-        
+
         <button
           type="submit"
           disabled={isLoading}

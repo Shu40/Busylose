@@ -65,7 +65,7 @@ export async function getUsers() {
       throw new Error("Unauthorized");
     }
 
-    return await User.find().sort({ createdAt: -1 }).lean();
+    return await User.find({}, { password: 0 }).sort({ createdAt: -1 }).lean();
   } catch (error) {
     return [];
   }

@@ -6,7 +6,34 @@ export async function scanUrl(url: string) {
   try {
     const isHttps = url.toLowerCase().startsWith("https://");
     
+    // SSRF Prevention & Localhost Block
+    try {
+      const parsedUrl = new URL(url);
+      const hostname = parsedUrl.hostname.toLowerCase();
+      
+      const isLocal = ['localhost', '127.0.0.1', '0.0.0.0', '::1'].includes(hostname);
+      const isPrivate = hostname.startsWith('192.168.') || 
+                        hostname.startsWith('10.') || 
+                        hostname.startsWith('172.16.') || // 172.16.x.x - 172.31.x.x simplified
+                        hostname.endsWith('.local');
+
+      if (isLocal || isPrivate) {
+        return {
+          isHttps: isHttps,
+          hasHsts: false,
+          hasCsp: false,
+          hasXFrame: false,
+          hasXContentType: false,
+          riskLevel: 'high',
+          details: "Scanning of internal or local addresses is strictly prohibited for security reasons."
+        };
+      }
+    } catch {
+      throw new Error("Invalid URL provided for scanning.");
+    }
+
     if (!isHttps) {
+
       return {
         isHttps: false,
         hasHsts: false,

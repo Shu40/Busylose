@@ -81,8 +81,8 @@ export async function getUserStats() {
       Submission.countDocuments({ userId, status: "pending" })
     ]);
 
-    const submissions = await Submission.find({ userId }).sort({ submittedAt: -1 }).lean();
-    const user = await User.findById(userId).lean();
+    const submissions = await Submission.find({ userId: userId.toString() }).sort({ submittedAt: -1 }).lean();
+    const user = await User.findById(userId, { password: 0 }).lean();
 
     return {
       stats: { approved, rejected, pending, total: approved + rejected + pending },
@@ -222,8 +222,8 @@ export async function deleteSubmission(formData: FormData) {
     if (submission.status === 'approved') {
         // We match by title and owner for simplicity, or we could have stored resourceId in submission
         await (require("@/models/Resource").default).deleteOne({ 
-            title: submission.title, 
-            owner: submission.ownerName 
+            title: { $eq: submission.title }, 
+            owner: { $eq: submission.ownerName } 
         });
     }
 
