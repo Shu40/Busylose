@@ -13,7 +13,15 @@ export interface ISubmission extends Document {
   views: number;
   downloads: number;
   contactEmail: string;
-  features: string[];
+  securityScan?: {
+    isHttps: boolean;
+    hasHsts: boolean;
+    hasCsp: boolean;
+    hasXFrame: boolean;
+    hasXContentType: boolean;
+    riskLevel: 'high' | 'middle' | 'no';
+    details: string;
+  };
 }
 
 const SubmissionSchema: Schema = new Schema({
@@ -39,6 +47,19 @@ const SubmissionSchema: Schema = new Schema({
   downloads: { type: Number, default: 0 },
   contactEmail: { type: String },
   features: [{ type: String }],
+  securityScan: {
+    isHttps: { type: Boolean },
+    hasHsts: { type: Boolean },
+    hasCsp: { type: Boolean },
+    hasXFrame: { type: Boolean },
+    hasXContentType: { type: Boolean },
+    riskLevel: { 
+      type: String, 
+      enum: ['high', 'middle', 'no'],
+      default: 'no'
+    },
+    details: { type: String }
+  }
 });
 
 export default mongoose.models.Submission || mongoose.model<ISubmission>('Submission', SubmissionSchema);

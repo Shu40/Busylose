@@ -30,6 +30,26 @@ const nextConfig = {
       },
     ];
   },
+  webpack: (config) => {
+    config.watchOptions = {
+      ...config.watchOptions,
+      ignored: [
+        '**/node_modules/**',
+        '**/.next/**',
+        '**/pagefile.sys',
+        '**/hiberfil.sys',
+        '**/swapfile.sys',
+        '**/DumpStack.log.tmp',
+        '**/System Volume Information/**',
+        '**/$Recycle.Bin/**',
+        '**/Recovery/**',
+        '**/Config.Msi/**',
+        '**/$WinREAgent/**',
+      ],
+      followSymlinks: false,
+    };
+    return config;
+  },
 };
 
 export default nextConfig;

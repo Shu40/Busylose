@@ -6,7 +6,6 @@ import Article from "@/models/Article";
 import dbConnect from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 
@@ -28,6 +27,18 @@ export async function submitResource(formData: FormData) {
     }
 
     const isAdmin = (session.user as any).role === "admin";
+
+    // Non-admins can only have one pending submission at a time
+    if (!isAdmin) {
+      const existingPending = await Submission.findOne({ 
+        userId: (session.user as any).id, 
+        status: "pending" 
+      });
+      
+      if (existingPending) {
+        throw new Error("You already have a pending submission. Please wait for admin approval.");
+      }
+    }
 
     const submission = await Submission.create({
       userId: (session.user as any).id,

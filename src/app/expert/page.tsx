@@ -3,9 +3,14 @@ import dbConnect from "@/lib/db";
 import Article from "@/models/Article";
 import { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, User as UserIcon, Calendar, Heart } from "lucide-react";
+import { BookOpen, User as UserIcon, Calendar, Heart, Globe } from "lucide-react";
 import { FeedbackForm } from "@/components/feedback-form";
 import { getSiteConfig } from "@/app/actions/config";
+import { ExpertChat } from "@/components/expert/ExpertChat";
+import { getExpertMessages } from "@/app/actions/chat";
+import User from "@/models/User";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
 export const metadata: Metadata = {
   title: "Expert Talking",
@@ -13,9 +18,17 @@ export const metadata: Metadata = {
 };
 
 export default async function ExpertTalkingPage() {
+  const session = await getServerSession(authOptions);
   await dbConnect();
-  const articles = await Article.find().sort({ date: -1 }).lean();
-  const config = await getSiteConfig();
+  
+  const [articles, config, messagesData, adminUser] = await Promise.all([
+    Article.find().sort({ date: -1 }).lean(),
+    getSiteConfig(),
+    getExpertMessages(),
+    User.findOne({ role: 'admin' }).select('_id').lean() as any
+  ]);
+
+  const adminId = adminUser?._id?.toString() || "";
 
   return (
     <div className="p-6 max-w-5xl mx-auto space-y-12 mb-20">
@@ -66,6 +79,17 @@ export default async function ExpertTalkingPage() {
               </div>
             </div>
           ))}
+        </div>
+      )}
+      {(articles as any[]).length > 0 && (
+        <div className="pt-12 border-t border-slate-100 dark:border-slate-800 space-y-8">
+          <div className="flex items-center gap-x-3">
+             <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 rounded-xl">
+               <Globe className="w-5 h-5" />
+             </div>
+             <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Community Hub</h2>
+          </div>
+          <ExpertChat initialMessages={messagesData.messages} adminId={adminId} />
         </div>
       )}
     </div>

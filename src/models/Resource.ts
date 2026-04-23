@@ -16,6 +16,8 @@ export interface IResource extends Document {
   features: string[];
   rating: number;
   reviewsCount: number;
+  totalRatings: number;
+  sumRatings: number;
   price: number;
 }
 
@@ -43,6 +45,8 @@ const ResourceSchema: Schema = new Schema({
   features: [{ type: String }],
   rating: { type: Number, default: 0 },
   reviewsCount: { type: Number, default: 0 },
+  totalRatings: { type: Number, default: 0 },
+  sumRatings: { type: Number, default: 0 },
   price: { type: Number, default: 0 },
 });
 

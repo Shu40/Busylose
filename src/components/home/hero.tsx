@@ -17,7 +17,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative py-20 px-6 overflow-hidden">
+    <section className="relative py-20 px-4 md:px-6 overflow-hidden">
         {/* Background Accents */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/10 blur-[120px] rounded-full -z-10" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/10 blur-[120px] rounded-full -z-10" />
@@ -31,7 +31,7 @@ export function Hero() {
                 Community Powered Platform
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-black text-slate-900 dark:text-white uppercase tracking-tighter leading-[0.85]">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-slate-900 dark:text-white uppercase tracking-tighter leading-[0.85]">
                 Empowering <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#7C3AED]">Next-Gen Builders.</span>
             </h1>
@@ -52,7 +52,7 @@ export function Hero() {
                 <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-sky-500 transition-colors" />
                 <button 
                     type="submit"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-sky-700 hover:bg-sky-800 text-white px-6 py-3 rounded-2xl text-sm font-black uppercase tracking-tight transition-all active:scale-95"
+                    className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 bg-sky-700 hover:bg-sky-800 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-[10px] sm:text-sm font-black uppercase tracking-tight transition-all active:scale-95"
                 >
                     Search
                 </button>

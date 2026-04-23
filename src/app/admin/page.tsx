@@ -11,21 +11,25 @@ import {
   Clock, 
   FilePlus, 
   LayoutDashboard, 
-  ShieldAlert, 
+  MessageCircle,
+  ToggleLeft as ToggleIcon,
+  Settings,
+  ShieldCheck,
+  Shield,
+  ShieldAlert,
   Users,
   Search,
   Check,
   X,
   Lock,
   Unlock,
-  MessageCircle,
-  ToggleLeft as ToggleIcon,
-  Settings
+  Users2
 } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { cn } from "@/lib/utils";
 
 export default async function AdminDashboard({
   searchParams,
@@ -80,7 +84,7 @@ export default async function AdminDashboard({
           <thead className="bg-slate-50 dark:bg-slate-800 text-[10px] uppercase tracking-wider text-slate-500 font-black border-b">
             <tr>
               <th className="px-6 py-4">Tool / Version</th>
-              <th className="px-6 py-4">Contributor</th>
+              <th className="px-6 py-4">Security</th>
               <th className="px-6 py-4">Status</th>
               <th className="px-6 py-4 text-right">Actions</th>
             </tr>
@@ -93,8 +97,26 @@ export default async function AdminDashboard({
                   <div className="text-[11px] text-slate-400">{sub.category}</div>
                 </td>
                 <td className="px-6 py-4">
-                  <div className="font-medium">{sub.ownerName}</div>
-                  <div className="text-[11px] text-slate-400">{(sub.userId as any)?.email}</div>
+                  {sub.securityScan ? (
+                    <div className="flex flex-col gap-1">
+                      <div className={cn(
+                        "inline-flex items-center gap-x-1 px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-widest border w-fit",
+                        sub.securityScan.riskLevel === 'no' ? "bg-emerald-50 text-emerald-700 border-emerald-100" :
+                        sub.securityScan.riskLevel === 'middle' ? "bg-amber-50 text-amber-700 border-amber-100" :
+                        "bg-red-50 text-red-700 border-red-100"
+                      )}>
+                        {sub.securityScan.riskLevel === 'no' ? <ShieldCheck className="w-2 h-2" /> : <ShieldAlert className="w-2 h-2" />}
+                        {sub.securityScan.riskLevel} Risk
+                      </div>
+                      <div className="flex gap-0.5 opacity-60">
+                        {['isHttps', 'hasHsts', 'hasCsp', 'hasXFrame', 'hasXContentType'].map((key) => (
+                           <div key={key} className={cn("w-1.5 h-1.5 rounded-full", sub.securityScan[key] ? "bg-green-500" : "bg-red-500")} title={key} />
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest italic">No Scan</span>
+                  )}
                 </td>
                 <td className="px-6 py-4">
                   <span className={`px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-tighter ${

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="mt-20 border-t border-slate-200 dark:border-slate-800 pt-20 pb-10 px-6">
+    <footer className="mt-20 border-t border-slate-200 dark:border-slate-800 pt-20 pb-10 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
                 <div className="col-span-1 md:col-span-2 space-y-8">
@@ -44,11 +44,11 @@ export function Footer() {
                 </div>
             </div>
 
-            <div className="pt-10 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
-                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+            <div className="pt-10 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-8">
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 text-center md:text-left">
                     © 2026 BusyLoss. All Rights Reserved. Built with <Heart className="w-3 h-3 inline text-red-500 mx-1" /> for Developers.
                 </p>
-                <div className="flex items-center gap-x-8">
+                <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:gap-x-8">
                     <FooterLink label="Privacy" href="/privacy" />
                     <FooterLink label="Terms" href="/terms" />
                     <FooterLink label="Security" href="/security" />

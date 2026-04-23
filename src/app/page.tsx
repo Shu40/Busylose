@@ -14,6 +14,7 @@ import { ArrowRight, Flame, Sparkles } from "lucide-react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import { TeamSection } from "@/components/home/team-section";
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions);
@@ -23,8 +24,8 @@ export default async function HomePage() {
 
   // Parallel data fetching for performance
   const [
-    latestResources,
-    trendingResources,
+    latestResourcesRaw,
+    trendingResourcesRaw,
     statsData,
     creatorStats,
     totalUsers,
@@ -58,6 +59,9 @@ export default async function HomePage() {
     Resource.find().sort({ uploadDate: -1 }).limit(100).lean()
   ]);
 
+  const latestResources = JSON.parse(JSON.stringify(latestResourcesRaw));
+  const trendingResources = JSON.parse(JSON.stringify(trendingResourcesRaw));
+
   const globalStats = statsData[0] || { totalViews: 0, totalProjects: 0 };
   const topCreators = creatorStats.map((c: any) => ({
       name: c._id,
@@ -77,7 +81,7 @@ export default async function HomePage() {
       />
 
       {/* Trending Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-4 md:px-6">
         <div className="max-w-7xl mx-auto space-y-10">
             <div className="flex items-center gap-x-3 mb-8">
                 <div className="p-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 rounded-xl">
@@ -86,7 +90,7 @@ export default async function HomePage() {
                 <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Trending Projects</h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {trendingResources.map((res: any) => (
                     <ResourceCard 
                         key={res._id.toString()}
@@ -101,6 +105,7 @@ export default async function HomePage() {
                         uploadDate={new Date(res.uploadDate)}
                         views={res.views || 0}
                         downloads={res.downloads || 0}
+                        rating={res.rating || 0}
                     />
                 ))}
             </div>
@@ -110,7 +115,7 @@ export default async function HomePage() {
        <CategoriesGrid />
 
       {/* Advanced Discovery Hub */}
-      <section id="explore" className="py-24 px-6 relative overflow-hidden">
+      <section id="explore" className="py-24 px-4 md:px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-500/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
         
@@ -120,7 +125,7 @@ export default async function HomePage() {
       </section>
 
       {/* Latest Uploads Section */}
-      <section className="py-20 px-6 bg-slate-50 dark:bg-slate-900/50">
+      <section className="py-20 px-4 md:px-6 bg-slate-50 dark:bg-slate-900/50">
         <div className="max-w-7xl mx-auto space-y-12">
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-x-3">
@@ -149,6 +154,7 @@ export default async function HomePage() {
                         uploadDate={new Date(res.uploadDate)}
                         views={res.views || 0}
                         downloads={res.downloads || 0}
+                        rating={res.rating || 0}
                     />
                 ))}
             </div>
@@ -159,7 +165,9 @@ export default async function HomePage() {
 
       <TopCreators creators={topCreators} />
 
-      <section className="py-24 px-6 md:pb-40">
+      <TeamSection />
+
+      <section className="py-24 px-4 md:px-6 md:pb-40">
           <div className="max-w-4xl mx-auto bg-gradient-to-r from-sky-600 to-indigo-600 rounded-[3rem] p-12 text-center text-white relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
               <div className="relative z-10 space-y-6">

@@ -96,3 +96,14 @@
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
+
+/* Custom Utilities */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

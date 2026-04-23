@@ -122,7 +122,7 @@ export function ExploreTools({ initialResources }: ExploreToolsProps) {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 min-h-[400px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 min-h-[400px]">
         {filteredResources.length > 0 ? (
           filteredResources.map((res) => (
             <div key={res._id} className="animate-in fade-in slide-in-from-bottom-5 duration-500">
@@ -138,6 +138,7 @@ export function ExploreTools({ initialResources }: ExploreToolsProps) {
                     uploadDate={new Date(res.uploadDate)}
                     views={res.views || 0}
                     downloads={res.downloads || 0}
+                    rating={res.rating || 0}
                 />
             </div>
           ))

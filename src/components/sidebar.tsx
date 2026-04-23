@@ -48,16 +48,6 @@ const routes = [
     href: "/linux",
   },
   {
-    icon: Info,
-    label: "About",
-    href: "/about",
-  },
-  {
-    icon: HelpCircle,
-    label: "Support",
-    href: "/support",
-  },
-  {
     icon: PlusCircle,
     label: "Contribution",
     href: "/contribute",
@@ -68,9 +58,14 @@ const routes = [
     href: "/expert",
   },
   {
-    icon: LayoutGrid,
-    label: "Dashboard",
-    href: "/dashboard",
+    icon: Info,
+    label: "About",
+    href: "/about",
+  },
+  {
+    icon: HelpCircle,
+    label: "Support",
+    href: "/support",
   },
 ];
 
