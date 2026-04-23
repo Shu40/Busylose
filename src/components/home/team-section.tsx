@@ -6,15 +6,15 @@ const teamMembers = [
     name: "Shubham Kumar",
     role: "Team Manager",
     designation: "CSE 4th Year Student",
-    email: "shubham@busyloss.com",
+    email: "kumarshubham35568@gmail.com",
     image: "/Shubham.jpeg",
-    skills: ["Full-Stack", "Architecture", "Product"]
+    skills: ["Full-Stack", "Devops", "Product"]
   },
   {
     name: "Gaurav Kumar",
     role: "Core Developer",
     designation: "CSE 4th Year Student",
-    email: "gaurav@busyloss.com",
+    email: "chaurasiyag7250@gmail.com",
     image: "/gaurav.jpeg",
     skills: ["React", "Next.js", "UI/UX"]
   },
@@ -22,7 +22,7 @@ const teamMembers = [
     name: "Rishabh Kumar",
     role: "System Engineer",
     designation: "CSE 4th Year Student",
-    email: "rishabh@busyloss.com",
+    email: "rishabhgupta26225@gmail.com",
     image: "/rishabh.jpeg",
     skills: ["Database", "Backend", "Performance"]
   },
@@ -30,7 +30,7 @@ const teamMembers = [
     name: "Mayur Girase",
     role: "Frontend Specialist",
     designation: "CSE 4th Year Student",
-    email: "mayur@busyloss.com",
+    email: "tecnomayur7@gmail.com",
     image: "/mayur.jpeg",
     skills: ["CSS", "Animations", "Design"]
   }
@@ -73,7 +73,7 @@ export function TeamSection() {
                 <h3 className="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight">{member.name}</h3>
                 <p className="text-xs font-black text-[#2563EB] uppercase tracking-[0.2em]">{member.role}</p>
                 <p className="text-[10px] text-slate-400 font-bold lowercase tracking-tight pt-1">{member.email}</p>
-                
+
                 <div className="flex items-center justify-center gap-x-1 pt-2">
                   <GraduationCap className="w-3.5 h-3.5 text-slate-400" />
                   <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">{member.designation}</span>
